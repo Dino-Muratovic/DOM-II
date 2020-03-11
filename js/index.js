@@ -18,14 +18,29 @@ element.onwheel = zoomIn;
 //header logo wheel zoom ends here
 
 
+let images = document.querySelectorAll('.img-content');
+images.forEach(function(element){
+    console.log(`heller`, element);
+    element.addEventListener('click', function (event){
+        event.target.style.transform = "rotate(7deg)";
+        console.log(event.target);
+        console.log(`This event type is ${event.type}`);       
+        event.target.style.width = '70%';
+        event.target.style.border = '1px solid black';
+    })
+})
+
+
+
 
 //nav links start here - CLICK
 let navLinks = document.querySelectorAll('.nav .nav-link');
-Array.from(navLinks).forEach(function(element,index){    
+Array.from(navLinks).forEach(function(element,index){ 
+    // preventDefault();   // can't use it here --- I click
     console.log(`this is a link `, element);
     console.log(`this is index`, index);
     element.addEventListener('click', function (event){  
-    element.textContent = 'Nope';            
+    element.textContent = 'Nope!!';            
     console.log(`This event type is ${event.type}`);    
     })
  })
@@ -65,15 +80,41 @@ theFooter.addEventListener('dblclick', function (event){
     console.log(`This event type is ${event.type}`);
     console.log(`You double clicked here!`);
     // console.log(`bla bla`, event.target);
-    event.target.backgroundColor = 'red';
+    event.target.style.backgroundColor = 'salmon';
+    event.target.style.color = '#fff';
 })
-
 //double click ends here
 
 
 
-
+//double click again
 let destinationP = document.querySelectorAll('.destination p');
+destinationP.forEach(function(element){
+    console.log(element);
+    element.addEventListener('dblclick', function(event){
+        console.log(`This event type is ${event.type}`); 
+        event.target.style.backgroundColor = 'black';
+        event.target.style.color = "#fff";
+        event.target.style.marginLeft = "15px";
+        event.target.style.borderRadius = "10px"; 
+    })    
+})
+
+
+//on click
+let destinationImg = document.querySelector(".content-destination img");
+destinationImg.addEventListener('click', function(){
+    console.log(`This event type is ${event.type}`);
+    event.target.setAttribute ("src", "https://thebulletin.org/wp-content/uploads/2019/07/Forest-1024x665.jpg" );
+})
+// console.log(destinationImg);
+
+
+
+
+
+
+
 
 
 
